@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+           
+            html{
+                height:100%;
+                width:100%;
+
+            }
+           
+            body{
+                margin:0;
+                
+                
+            }
+            /*header start*/
+            header{
+                background-color:navy;
+                height:10vh;
+                width:100vw;
+                position:absolute;
+            }
+            .coal{
+                position:relative;
+                height:90%;
+            }
+            P{
+                font-weight: 900;
+                position:relative;
+                display:inline;
+                bottom:30%;
+                left:17%;
+                right:17%;
+                font-size:4.7vh;
+                color:white;
+            }
+            nav{
+                float:right;
+                
+                
+            }
+            .hamburg{
+                    position:relative;
+                    height:9vh;
+                    width:5vw;
+                    float:right;
+                    margin-top:0vh;
+                    background-image: url('https://cdn0.iconfinder.com/data/icons/essentials-line/100/Menu-512.png');
+                    background-size: contain;
+                    background-repeat: no-repeat;
+                   
+            }
+            a{
+                
+                box-sizing: border-box;
+                display:block;
+                height:20%;
+                text-decoration: none;
+                color:black;
+                text-align: center;
+                padding-top:10%;
+                background-color:rgba(138, 145, 148, 0.521);
+            }
+            a:hover{
+                border-bottom:solid;
+            }
+            .content{
+                padding-top:1.3%;
+                
+                margin-top: 7vh;
+               position:absolute;
+                height:50vh;
+                width:15vw;
+                display:none;
+                right:0%;
+                left:85%;
+                z-index: 10;
+            }
+            nav:hover .content{
+                display:block;
+            }
+            nav:hover .hamburg{
+                background-image: url('https://cdn3.iconfinder.com/data/icons/ui-icons-5/16/cross-small-01-512.png');
+            }
+            .user{
+                
+                height:5vh;
+                position:relative;
+                left:22%;
+                bottom:1.8vh;
+                
+            }
+            .welcome{
+                position:relative;
+                font-size:1.2rem;
+                position:relative;
+                bottom:37%;
+                left:23%;
+                
+            }
+           /*header end*/
+            
+          
+            fieldset{
+                   position: relative;;
+                   top:20vh;
+                   left:17vw;
+                   width:50vw;
+                   background-color: navy;
+                   border-radius:40%;
+                  
+            }
+            table{
+                border:solid navy;
+                background-color: white;
+            }
+            caption{
+                color:white;
+            }
+           
+        </style>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>welcome {{user.first_name}}</title>
+    </head>
+    <body>
+        <header>
+           <img class="coal" src="http://beta.coalindia.in/static/images/logo.png">
+           <p>COAL PRODUCTION DAILY DATATBASE</p>
+           <img class="user" src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSjYvljCSdToX-tUuPAYolPSj322LShTlTp4zCoiNRPRlZfMaKzNAHM3-0mgvq8lfMgnM8ZbwHg6x5xA-2oolJjH_VVnk3iex2TyFB14wZyAiXMpsg8XV-ROHkyBrubyDE0DMxykOW-H2oH9LYZAMPR9tVjt6ME4unPWU-ZC0cLdUo_lUwymTJAKqLj9XTumICjIPaZVvLwFEVpTlAAaqSt0Y0jtoNfC6-TZP3cvU0-HAUY4XD1sblvwfqpvaRM9-zKE4ALXn2_Zgh2eI8LLIFC9UtMklEAVG0N37bs7pP7nWyBASZ10PVUtPXEBr5jXyI3aP7JykO6NlL70rRHF6a3WXd4AxhvID36_1j5iL5jmhMv0ucqTVmMNPjm3miDtSZcG7NzxzWVn9HE0JjpJ2VdLNK0xK0stZ0ZjpO6cwnxpkNC5Q933ba5aqA&usqp=CAU">
+           <p class="welcome">{{user.first_name}} {{user.last_name}}</p>
+           <nav>
+           <div class="hamburg"></div>
+           <div class="content">
+                
+            <a href="#">HOME</a>  
+            <a href="#" >SAVED DATABASES</a>         
+             <a href="#">HELP</a>           
+             <a href="#">CONTACT US</a>              
+             <a href="/register/signout">LOG OUT</a>  
+
+             
+           </div>
+           </nav>
+        </header>
+        <section>
+            <form action="/database/production_table" method="post">
+                {% csrf_token %}
+            <fieldset>
+                <table>
+                    <tr>
+                        <caption><b>PRODUCTION TABLE<b></caption>
+                        <th>DATE</th>
+                        <th>ACTUAL PRODUCTION</th>
+                        <th>ACCUMULATED ACTUAL PRODUCTION</th>
+                        <th>REPORTED PRODUCTION</th>
+                        <th>ACCUMULATED REPORTED PRODUCTION</th>
+                    </tr>
+                    <tr>
+                        <td><input type="date" name="date2" id="date" ></td>
+                        <td><input type="number" value="0" name="actprod" id="a.pro"></td>
+                        <td><output type="number" id="aa.pro"></td>
+                        <td><input type="number" value="0" name="repprod" id="r.pro"></td>
+                        <td><output type="number"  id="ar.pro"></td>
+
+                    </tr>
+                </table>
+                <input type="submit" style="margin-left:30vw;cursor:pointer">
+            </fieldset>
+            </form>
+            <form action="/database/transport_table" method="post">
+                {% csrf_token %}
+            <fieldset style="margin-top:18vh;left:7vw;">
+                <table>
+                    <tr>
+                        <caption><b>TRANSPORT TABLE<b></caption>
+                        <th>DATE</th>
+                        <th>TRANSPORT TRIP</th>
+                        <th>ACCUMULATED TRANSPORT TRIP</th>
+                        <th>TRANSPORT WEIGHT(Ton)</th>
+                        <th>ACCUMULATED TRANSPORT WEIGHT(Ton)</th>
+                        <th>DISPATCH</th>
+                        <th>ACCUMULATED DISPATCH</th>
+                    </tr>
+                    <tr>
+                        <td><input type="date" name ="date1" id="date" ></td>
+                        <td><input type="number" name="transtrip" value="0" id="a.pro"></td>
+                        <td><output  id="aa.pro"></td>
+                        <td><output  id="r.pro"></td>
+                        <td><output  id="ar.pro"></td>
+                        <td><input type="number" name="dispatch" value="0" id="dis"></td>
+                        <td><output  id="a.dis"></td>
+
+
+                    </tr>
+                </table>
+                <input type="submit" style="margin-left:40vw;cursor:pointer;">
+            </fieldset>
+            </form>
+        </section>
+    </body>
+</html>

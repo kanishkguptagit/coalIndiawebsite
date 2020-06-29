@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        h1{            
+            color: black;
+            margin-left:45.5% ;
+        }
+        .box{
+            border-radius: 7%;
+            margin: auto;
+            padding: 1%;            
+            width: 16.5%;
+            border: 1px solid black;
+            padding-left: 3%;
+        }
+        .center{
+            position: relative;
+            left: 30%;
+        }
+        .bg{
+            position: absolute;            
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            z-index: -1;
+            background: url(https://media.gettyimages.com/photos/an-outside-view-of-coal-bhawan-of-coal-india-ltd-at-rajarhat-on-may-picture-id525599212?s=2048x2048);
+            opacity: 0.5;
+            background-size: cover;
+            height: 140;
+        }
+        .textfield{
+            border-radius: 5px;
+        }
+        .link{
+            text-align: right;
+        }
+        body{
+            margin:0;
+        }
+        header{
+            background-color:navy;
+            
+        }
+        .coal{
+            height:9vh;
+        }
+        P{
+            position:relative;
+            display:inline;
+            bottom:2.5vh;
+            left:18vw;
+            font-size:5vh;
+            color:white;
+        }
+        nav{
+            float:right;
+            
+            
+        }
+        .hamburg{
+                height:9vh;
+                width:5vw;
+                float:right;
+                margin-top:0vh;
+                background-image: url('https://cdn0.iconfinder.com/data/icons/essentials-line/100/Menu-512.png');
+                background-size: contain;
+                background-repeat: no-repeat;
+               
+        }
+        .a1{
+            
+            box-sizing: border-box;
+            display:block;
+            height:10vh;
+            text-decoration: none;
+            color:black;
+            text-align: center;
+            padding-top:2vh;
+            background-color:rgba(138, 145, 148, 0.521);
+        }
+        .a1:hover{
+            border-bottom:solid;
+        }
+        .content{
+            margin-top: 10vh;
+            
+            height:30vh;
+            width:12vw;
+            display:none;
+            
+        }
+        nav:hover .content{
+            display:block;
+        }
+        nav:hover .hamburg{
+            background-image: url('https://cdn3.iconfinder.com/data/icons/ui-icons-5/16/cross-small-01-512.png');
+        }
+    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+</head>
+<body>      
+    <header>
+        <img class="coal" src="http://beta.coalindia.in/static/images/logo.png">
+        <p>COAL PRODUCTION DAILY DATABASE</p>
+        <nav>
+        <div class="hamburg"></div>
+        <div class="content">
+             
+         <a class="a1" href="#">HOME</a> 
+     
+          <a class="a1" href="#">HELP</a>  
+      
+          <a class="a1" href="#">CONTACT US</a>  
+        </div>
+        </nav>
+     </header>
+     <section>
+
+     </section> 
+    <br> 
+    <h1>LOGIN</h1>
+    <div class="bg"></div>
+    <img src="https://upload.wikimedia.org/wikipedia/en/thumb/4/49/Coal_India_Logo.svg/1200px-Coal_India_Logo.svg.png" alt="Logo" style="width: 13%;height:12%; position:relative; left:43.5%">
+    <div class="box">
+        <div style="color:red">                
+            {% for message in messages %}
+                    {{message}}
+            {% endfor %}            
+        </div>        
+        <form action="/register/signin" method="POST">
+            {% csrf_token %}            
+            <br>
+            <input type = "text" class="textfield" name="username" placeholder="Username"><br><br>
+            <input type="password" class="textfield" name="pass" placeholder="Password"><br><br> 
+            <br>
+            <div class="center"><button type="submit" class="textfield">Login</button></div> 
+        </form>
+    </div><br>
+    <div style="text-align: center">Don't have a account?<a href="/register/signup">Register</a></div> <br><br>
+</body>
+</html>
