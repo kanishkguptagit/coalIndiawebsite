@@ -6,7 +6,7 @@ virtualEnvio
 myvenv
 test2
 db.sqlite3
-/static
+static
 .DS_Store
 *.log
 *.pot
