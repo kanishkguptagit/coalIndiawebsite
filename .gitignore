@@ -3,7 +3,8 @@
 /.vscode
 __pycache__
 virtualEnvio
-babVenv
+myvenv
+test2
 db.sqlite3
 /static
 .DS_Store
