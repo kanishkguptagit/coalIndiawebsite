@@ -79,10 +79,10 @@ WSGI_APPLICATION = 'coalIndia_website.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'coalIndiawebsite',
-        'USER': 'postgres',
-        'PASSWORD': '1234',
-        'HOST': 'localhost',
+        'NAME': 'd1aqs1ek1ocur7',
+        'USER': 'aiucbqrqauehbt',
+        'PASSWORD': '85e8d80b594fa32f00bc136c6b47c5cbf60dec063d8fb50ae6e8eef0213a267b',
+        'HOST': 'ec2-54-236-169-55.compute-1.amazonaws.com',
         'PORT': '5432'
     }
 }
