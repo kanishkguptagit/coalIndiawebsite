@@ -1,0 +1,1 @@
+web: gunicorn coalIndia_website.wsgi --log-file -
