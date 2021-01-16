@@ -11,16 +11,20 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 """
 
 import os
+import dotenv
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
+dotenv_file = os.path.join(BASE_DIR, ".env")
+if os.path.isfile(dotenv_file):
+    dotenv.load_dotenv(dotenv_file)
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'y6wg$=ags54i7*j@p1imf+l(2bz9!x1e405c2l6!ihim_96g$d'
+SECRET_KEY = os.environ['SECRET_KEY']
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
@@ -81,7 +85,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'd1aqs1ek1ocur7',
         'USER': 'aiucbqrqauehbt',
-        'PASSWORD': '85e8d80b594fa32f00bc136c6b47c5cbf60dec063d8fb50ae6e8eef0213a267b',
+        'PASSWORD': os.environ['DATABASE_PASSWORD'],
         'HOST': 'ec2-54-236-169-55.compute-1.amazonaws.com',
         'PORT': '5432'
     }

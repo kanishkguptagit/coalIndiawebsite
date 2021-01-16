@@ -14,3 +14,4 @@ static
 *.py[cod]
 *$py.class
 coalIndia_website/secretkey.py
+.env
